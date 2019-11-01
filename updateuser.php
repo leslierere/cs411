@@ -1,0 +1,24 @@
+<?php
+require_once "pdo.php";
+
+if ( isset($_POST['netID']) && isset($_POST['newmajor']) 
+     ) {
+    $sql = "UPDATE Student SET major = :newmajor WHERE netID = :netID";
+    echo("<pre>\n".$sql."\n</pre>\n");
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(array(
+        ':newmajor' => $_POST['newmajor'],
+        ':netID' => $_POST['netID']));
+}
+?>
+<html>
+<head></head><body>
+<p>Update your major:</p>
+<form method="post">
+<p>NetID:
+<input type="text" name="netID" size="20"></p>
+<p>Your new major:
+<input type="text" name="newmajor" size="40"></p>
+<p><input type="submit" value="Update"/></p>
+</form>
+</body>
