@@ -5,26 +5,26 @@
 - Show how to insert records to the database.
 
   **addclass.php, adduser.php**
-
-Insert class a student wanna take
-
+  
+  Insert class a student wanna take
+  
 - Show one query that searches the database, and display the returned records in your application.
 
-**intendedclass.php**
+  **intendedclass.php**
 
-Example: the average GPA of the class in the past, by diff teacher? by year?
+  Example: the average GPA of the class in the past, by diff teacher? by year?
 
 - Show how to update records.
 
-**updateuser.php**
+  **updateuser.php**
 
-Example: update majors
+  Example: update majors
 
 - Show how to delete records.
 
-**delclass.php**
+  **delclass.php**
 
-A table that store the classes students intend to enroll
+  A table that store the classes students intend to enroll
 
 
 
