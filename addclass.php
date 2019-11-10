@@ -1,5 +1,6 @@
 <?php
 require_once "pdo.php";
+$old_netid = isset($_POST['netID']) ? $_POST['netID'] : '';
 
 if ( isset($_POST['netID']) && isset($_POST['department']) && isset($_POST['courseNumber']) ) {
     $sql = "INSERT INTO Course (netID, department, courseNumber) 
@@ -20,7 +21,7 @@ if ( isset($_POST['netID']) && isset($_POST['department']) && isset($_POST['cour
 <p>Add a new class you wanna take:</p>
 <form method="post">
 <p>NetID:
-<input type="text" name="netID" size="20"></p>
+<input type="text" name="netID" size="20" value="<?= htmlentities($old_netid) ?>"></p>
 <p>Department:
 <input type="text" name="department" size="20"></p>
 <p>Course Number:

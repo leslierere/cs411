@@ -2,6 +2,7 @@
 
 # so we don't need write database info in every file
 require_once "pdo.php";
+$old_netid = isset($_POST['netID']) ? $_POST['netID']: "";
 
 
 $sql = "SELECT department, courseNumber FROM Course where netID = :netID";
@@ -38,7 +39,7 @@ echo "</table>\n";
 <p>Check out your intended classes:</p>
 <form method="post">
 <p>NetID:
-<input type="text" name="netID" size="20"></p>
+<input type="text" name="netID" size="20" value="<?= $old_netid ?>"></p>
 <p><input type="submit" value="click"/></p>
 </form>
 </body>
