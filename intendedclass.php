@@ -10,32 +10,58 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute(array(
         ':netID' => $_POST['netID']
     ));
-
-
-$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-echo '<table border="1">'."\n";
-echo "</tr><td>";
-echo "Department";
-echo "</td><td>";
-echo "Course Number";
-echo("</td></tr>\n");
-
-foreach ( $rows as $row ) {
-    echo "<tr><td>";
-    echo($row['department']);
-    echo "</td><td>";
-    echo($row['courseNumber']);
-    echo("</td></tr>\n");
+var_dump($_POST);
+if ( isset($_POST['delete']) && isset($_POST['netID']) && isset($_POST['department']) && isset($_POST['courseNumber'])) {
+	$sql1 = 'DELETE FROM Course WHERE courseNumber = :courseNo AND id = :netID AND department = :dpt';
+	echo "<pre>\n$sql1\n</pre>\n";
+	// $stmt1 = $pdo->prepare($sql1);
+	// $stmt1->execute(array(
+	// 	':courseNo'=>$_POST['courseNumber'],
+	// 	':id' => $_POST['netID'],
+	// 	':dpt' => $_POST['department']
+	// ))
 }
-echo "</table>\n";
+
+
 ?>
 
 
 
 <html>
 <head>
-    <title>Search</title>
+    <title>Intened Class Table</title>
 </head><body>
+
+<pre>
+	<?php
+	$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	echo '<table border="1">'."\n";
+	echo "</tr><th>"; //tr: table row, th: table header
+	echo "Department";
+	echo "</th><th>"; //td: table data/cell
+	echo "Course Number";
+	echo("</th></tr>\n");
+
+foreach ( $rows as $row ) {
+    echo "<tr><td>";
+    echo($row['department']);
+    echo "</td><td>";
+    echo($row['courseNumber']);
+    echo "</td><td>";
+    echo "<from method='post'><input type='hidden' ";
+    echo "name = 'netID' value='".$_POST['netID']."'>"."\n";//name要改
+    echo "<input type='hidden' name = 'department' value='".$row['department']."'>"."\n";
+    echo "<input type='hidden' name = 'courseNumber' value='".$row['courseNumber']."'>"."\n";
+    echo "<input type='submit' value = 'Del' name ='delete'> ";
+    echo "\n</form>\n";
+    echo("</td></tr>\n");
+}
+echo "</table>\n";
+	?>
+</pre>
+
+
+
 <p>Check out your intended classes:</p>
 <form method="post">
 <p>NetID:
