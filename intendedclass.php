@@ -3,23 +3,24 @@
 # so we don't need write database info in every file
 require_once "pdo.php";
 $old_netid = isset($_POST['netID']) ? $_POST['netID']: "";
+// to display the value you just input
 
 
-$sql = "SELECT department, courseNumber FROM Course where netID = :netID";
+$sql = "SELECT department, courseNumber,netID FROM Course where netID = :netID";
 $stmt = $pdo->prepare($sql);
 $stmt->execute(array(
         ':netID' => $_POST['netID']
     ));
-var_dump($_POST);
+// var_dump($_POST);
 if ( isset($_POST['delete']) && isset($_POST['netID']) && isset($_POST['department']) && isset($_POST['courseNumber'])) {
-	$sql1 = 'DELETE FROM Course WHERE courseNumber = :courseNo AND id = :netID AND department = :dpt';
+	$sql1 = 'DELETE FROM Course WHERE courseNumber = :courseNo AND netID = :netID AND department = :dpt';
 	echo "<pre>\n$sql1\n</pre>\n";
-	// $stmt1 = $pdo->prepare($sql1);
-	// $stmt1->execute(array(
-	// 	':courseNo'=>$_POST['courseNumber'],
-	// 	':id' => $_POST['netID'],
-	// 	':dpt' => $_POST['department']
-	// ))
+	$stmt1 = $pdo->prepare($sql1);
+	$stmt1->execute(array(
+		':courseNo'=>$_POST['courseNumber'],
+		':netID'=>$_POST['netID'],
+		':dpt'=>$_POST['department']
+	));
 }
 
 
@@ -48,8 +49,8 @@ foreach ( $rows as $row ) {
     echo "</td><td>";
     echo($row['courseNumber']);
     echo "</td><td>";
-    echo "<from method='post'><input type='hidden' ";
-    echo "name = 'netID' value='".$_POST['netID']."'>"."\n";//name要改
+    echo "<form method='post'><input type='hidden' ";
+    echo "name = 'netID' value='".$row['netID']."'>"."\n";//name要改
     echo "<input type='hidden' name = 'department' value='".$row['department']."'>"."\n";
     echo "<input type='hidden' name = 'courseNumber' value='".$row['courseNumber']."'>"."\n";
     echo "<input type='submit' value = 'Del' name ='delete'> ";
