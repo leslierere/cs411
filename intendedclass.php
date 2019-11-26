@@ -6,11 +6,6 @@ $old_netid = isset($_POST['netID']) ? $_POST['netID']: "";
 // to display the value you just input
 
 
-$sql = "SELECT department, courseNumber,netID FROM Course where netID = :netID";
-$stmt = $pdo->prepare($sql);
-$stmt->execute(array(
-        ':netID' => $_POST['netID']
-    ));
 // var_dump($_POST);
 if ( isset($_POST['delete']) && isset($_POST['netID']) && isset($_POST['department']) && isset($_POST['courseNumber'])) {
 	$sql1 = 'DELETE FROM Course WHERE courseNumber = :courseNo AND netID = :netID AND department = :dpt';
@@ -35,6 +30,12 @@ if ( isset($_POST['delete']) && isset($_POST['netID']) && isset($_POST['departme
 
 <pre>
 	<?php
+	$sql = "SELECT department, courseNumber,netID FROM Course where netID = :netID";
+	$stmt = $pdo->prepare($sql);
+	$stmt->execute(array(
+	        ':netID' => $_POST['netID']
+	    ));
+
 	$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	echo '<table border="1">'."\n";
 	echo "</tr><th>"; //tr: table row, th: table header
