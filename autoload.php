@@ -1,0 +1,1 @@
+composer require "graphaware/neo4j-php-client:^4.0"
