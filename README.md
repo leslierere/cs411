@@ -2,27 +2,27 @@
 
 #### Basic Functionality:
 
-- Show how to insert records to the database.
+- Show how to insert records to the database.-OK
 
   **addclass.php, adduser.php**
   
   Insert class a student wanna take
   
-- Show one query that searches the database, and display the returned records in your application.
+- Show one query that searches the database, and display the returned records in your application.-OK
 
   **intendedclass.php**
 
   Example: the average GPA of the class in the past, by diff teacher? by year?
 
-- Show how to update records.
+- Show how to update records.-OK
 
   **updateuser.php**
 
   Example: update majors
 
-- Show how to delete records.
+- Show how to delete records.-OK
 
-  **delclass.php**
+  **delclass.php** 12.4 embedded in intended class
 
   A table that store the classes students intend to enroll
 
@@ -55,9 +55,16 @@
 
 
 
-#### For dummy data, stored in neo4j
+#### For dummy data, stored in neo4j-add more dummy data
 
 * based on the classes taken by student, we can recommend the other classes that students taking these classes also take (thus that we can use neo4j to store information about the classes taken by students)
+
+
+
+#### To be done by Jesse:
+
+* look up average gpa by cs411, rather than the complete name
+* add dummy data in mysql
 
 
 
@@ -76,8 +83,26 @@
 #### Some ideas
 
 * for optional courses, based on the usefulness in career
-
 * pull out all the courses by the same professor
 
-  
 
+
+
+
+- **Basic Functions**:
+  1. There are some **real data** in the database: either **crawled from real websites** OR **inserted by your friends - 10 developed accounts** (not fake randomly generated values). **If you crawl data, the DB should have at least 100 records and if you are going to have user-generated data then you must have at least 25 records in your database before your final demo deadline.** Ok 
+  2. Show how to insert/update/delete records to the database (repeat from the Initial Demo) ok
+  3. Show how to search the database and list or print returned results. You need to show a few different interesting queries over your database. **One of the queries must involve join of multiple (at least 2) tables.** The average GPA by different professor?
+
+- **Demo Advanced Function 1:** Give a brief overview of your advanced function and show us how it works in your project. We will mainly grade in three dimensions (usefulness, technical difficulties, and novelty), so please try to answer the following questions during the demo:
+  1. Why is it useful for your users?
+  2. Does it use database stored procedures, functions OR triggers?
+  3. Why is it technically challenging than the basic functions? How did you overcome the difficulties?
+  4. Is it creative or novel with respect to other similar applications in the domain?
+
+- **Discuss and Demo Advanced Function 2**: 
+
+  Give a brief overview of your implementation of a No-SQL database and show us how it works in your project.
+
+  - discuss your design decisions related to storing your app data in relational vs. non-relational databases.
+  - discuss challenges related to connecting data items between the SQL and NoSQL databases. 

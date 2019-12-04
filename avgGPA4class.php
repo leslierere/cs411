@@ -15,6 +15,20 @@ $stmt->execute(array(
     ));
 
 
+
+?>
+
+
+
+<html>
+<head>
+    <title>Search</title>
+</head><body>
+	<p>
+<a href="main.html">Main Page</a>
+</p>
+
+<?php
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 echo '<table border="1">'."\n";
 echo "</tr><td>";
@@ -31,14 +45,10 @@ foreach ( $rows as $row ) {
     echo("</td></tr>\n");
 }
 echo "</table>\n";
+
+
 ?>
 
-
-
-<html>
-<head>
-    <title>Search</title>
-</head><body>
 <p>Check out the average GPA of the class:</p>
 <form method="post">
 <p>Course Title:

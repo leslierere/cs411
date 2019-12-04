@@ -34,7 +34,9 @@ merge (s)-[:took]->(cl);";
 <head>
 	<title>Classes taken</title>
 </head><body>
-
+<p>
+<a href="main.html">Main Page</a>
+</p>
 <p>Add the class you have taken:</p>
 <form method="post">
 <p>NetID:

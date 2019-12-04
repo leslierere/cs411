@@ -18,6 +18,9 @@ if ( isset($_POST['netID']) && isset($_POST['newmajor'])
 
 <html>
 <head></head><body>
+	<p>
+<a href="main.html">Main Page</a>
+</p>
 <p>Update your major:</p>
 <form method="post">
 <p>NetID:

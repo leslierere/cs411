@@ -18,6 +18,10 @@ if ( isset($_POST['netID']) && isset($_POST['department']) && isset($_POST['cour
 <head>
 	<title>Insert</title>
 </head><body>
+<p>
+<a href="main.html">Main Page</a>
+</p>
+
 <p>Add a new class you wanna take:</p>
 <form method="post">
 <p>NetID:
