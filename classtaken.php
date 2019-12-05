@@ -17,7 +17,7 @@ $old_netid = isset($_POST['netID']) ? $_POST['netID'] : '';
 if ( isset($_POST['netID']) && isset($_POST['department']) && isset($_POST['courseNumber']) ) {
     //add one course the student took.
     $id = $_POST['netID'];
-    $course = $_POST['department'].$_POST['courseNumber'];
+    $course = strtoupper($_POST['department']).$_POST['courseNumber'];
 
 
     // $trial = "merge (s:Student{netID:'$id'})
@@ -78,11 +78,11 @@ return c.courseNo;";
 
     foreach ($classes->getRecords() as $record) {
         $theCourse = strtoupper($record->value('c.courseNo'));
-        echo "<tr><td>";
 
+        //display value in Course column
+        echo "<tr><td>";
         echo sprintf("%s", $theCourse);
         echo "</td><td>";
-        // echo("placeholder");
 
 
 
@@ -92,13 +92,21 @@ where s2<>s1
 return c2.courseNo";
         
         $rec_classes = $client->run($query);
+        // $rec_classes = array_unique($client->run($query));
         $result = "";
 
+        $classArray = array();
+
         foreach ($rec_classes->getRecords() as $i) {
-            $result = $result.$i->value('c2.courseNo').", ";
+            // $result = $result.$i->value('c2.courseNo').", ";
             // echo sprintf("%s, ", $i->value('c2.courseNo'));
+            $classArray[]=$i->value('c2.courseNo');
         }
-        echo trim($result, ", ");
+        // $classArray = array_unique($classArray);
+        $finaloutput = implode(", ",array_unique($classArray));;
+        echo $finaloutput;
+        // echo trim($result, ", ");
+
         echo("</td></tr>\n");
 
     }
