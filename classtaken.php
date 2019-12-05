@@ -18,7 +18,13 @@ if ( isset($_POST['netID']) && isset($_POST['department']) && isset($_POST['cour
     //add one course the student took.
     $id = $_POST['netID'];
     $course = $_POST['department'].$_POST['courseNumber'];
-    $query = "match (s:Student{netID:\"$id\"})
+
+
+    // $trial = "merge (s:Student{netID:'$id'})
+    // merge (c:Class{courseNo:'CS110'})
+    // merge (s)-[:took]->(c)"
+
+    $query = "merge (s:Student{netID:\"$id\"})
 merge (cl:Class{courseNo:\"$course\"})
 merge (s)-[:took]->(cl);";
     
@@ -59,6 +65,9 @@ merge (s)-[:took]->(cl);";
     echo("</th></tr>\n");
 
 
+
+    
+
     $getClass = "match (s:Student{netID:\"$old_netid\"})-[:took]->(c:Class)
 return c.courseNo;";
     
@@ -68,12 +77,14 @@ return c.courseNo;";
     $classes = $client->run($getClass);
 
     foreach ($classes->getRecords() as $record) {
-        $theCourse = $record->value('c.courseNo');
+        $theCourse = strtoupper($record->value('c.courseNo'));
         echo "<tr><td>";
 
         echo sprintf("%s", $theCourse);
         echo "</td><td>";
         // echo("placeholder");
+
+
 
 
         $query = "match (s1:Student{netID:\"$old_netid\"})-[:took]->(c1:Class{courseNo:\"$theCourse\"})<-[:took]-(s2:Student)-[:took]->(c2:Class)

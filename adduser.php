@@ -15,6 +15,9 @@ if ( isset($_POST['netID']) && isset($_POST['name'])
 ?>
 <html>
 <head></head><body>
+<p>
+<a href="main.html">Main Page</a>
+</p>
 <p>Add A New User</p>
 <form method="post">
 <p>NetID:
