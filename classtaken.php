@@ -47,7 +47,7 @@ merge (s)-[:took]->(cl);";
 <form method="post">
 <p>NetID:
 <input type="text" name="netID" size="20" value="<?= htmlentities($old_netid) ?>"></p>
-<p>Department:
+<p>Department(example: CS):
 <input type="text" name="department" size="20"></p>
 <p>Course Number:
 <input type="text" name="courseNumber" size="20"></p>

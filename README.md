@@ -92,15 +92,15 @@
 - **Basic Functions**:
   1. There are some **real data** in the database: either **crawled from real websites** OR **inserted by your friends - 10 developed accounts** (not fake randomly generated values). **If you crawl data, the DB should have at least 100 records and if you are going to have user-generated data then you must have at least 25 records in your database before your final demo deadline.** Ok 
   2. Show how to insert/update/delete records to the database (repeat from the Initial Demo) ok
-  3. Show how to search the database and list or print returned results. You need to show a few different interesting queries over your database. **One of the queries must involve join of multiple (at least 2) tables.** The average GPA by different professor?
+  3. Show how to search the database and list or print returned results. You need to show a few different interesting queries over your database. **One of the queries must involve join of multiple (at least 2) tables.** ***Haven't done yet***
 
-- **Demo Advanced Function 1:** Give a brief overview of your advanced function and show us how it works in your project. We will mainly grade in three dimensions (usefulness, technical difficulties, and novelty), so please try to answer the following questions during the demo:
+- **Demo Advanced Function 1:** Give a brief overview of your advanced function and show us how it works in your project. We will mainly grade in three dimensions (usefulness, technical difficulties, and novelty), so please try to answer the following questions during the demo:**the recommended class with teachers with highest quality, connect neo4j and mysql in php, one teacher-to-many classes on neo4j, but the output we need is for each class, give teacher name with the highest rating**
   1. Why is it useful for your users?
   2. Does it use database stored procedures, functions OR triggers?
   3. Why is it technically challenging than the basic functions? How did you overcome the difficulties?
   4. Is it creative or novel with respect to other similar applications in the domain?
 
-- **Discuss and Demo Advanced Function 2**: 
+- **Discuss and Demo Advanced Function 2**: **courses taken by others**. Ok.
 
   Give a brief overview of your implementation of a No-SQL database and show us how it works in your project.
 

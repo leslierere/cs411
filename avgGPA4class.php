@@ -52,7 +52,7 @@ echo "</table>\n";
 
 <p>Check out the average GPA of the class:</p>
 <form method="post">
-<p>Department:
+<p>Department(example:CS):
 <input type="text" name="subject" size="20"></p>
 <p>Course Number:
 <input type="text" name="courseno" size="20"></p>

@@ -10,7 +10,8 @@ if ( isset($_POST['netID']) && isset($_POST['name'])
     $stmt->execute(array(
         ':name' => $_POST['netID'],
         ':email' => $_POST['name'],
-        ':password' => $_POST['major']));
+        ':password' => strtoupper($_POST['major'])));
+    
 }
 ?>
 <html>
