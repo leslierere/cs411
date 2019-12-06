@@ -8,7 +8,7 @@ $sql = "SELECT primaryInstructor AS Instructor, ((SUM(Aplus)*4.0 + SUM(Aonly)*4.
 FROM GPA
 WHERE subject = :subject AND number = :courseno
 GROUP BY primaryInstructor
-ORDER BY primaryInstructor;";
+ORDER BY avgGPA DESC;";
 $stmt = $pdo->prepare($sql);
 $stmt->execute(array(
         ':subject' => strtoupper($_POST['subject']),

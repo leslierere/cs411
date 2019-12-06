@@ -67,9 +67,7 @@ foreach ( $rows as $row ) {
 
 	//the mysql part
 	$sql = "select distinct primaryInstructor from GPA where subject='$dept' and number=$thenumber;";
-	// echo "<p>";
-	// echo "\n$sql\n";
-	// echo "</p>";
+	
 	$innerstmt = $pdo->prepare($sql);
 	$innerstmt->execute();
 
@@ -85,8 +83,7 @@ foreach ( $rows as $row ) {
 		// $var = explode(" ", $name);	
 	}
 
-	// echo "Professor array for this class:\n";
-	// print_r($nameArray);
+	
 
 	// neo4j part
 	$rating = array();
@@ -96,9 +93,6 @@ foreach ( $rows as $row ) {
 		$lastName = $var[0];
 		$firstName = $var[1];
 
-		
-		// echo $firstName, " ",$lastName;
-		// echo "</p>";
 
 		$query = "MATCH (n:Professor{LastName:'$lastName', FirstName:'$firstName'}) RETURN n.OverallRating";
 		// echo $query;
